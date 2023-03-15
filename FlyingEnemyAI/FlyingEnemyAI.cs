@@ -25,10 +25,8 @@ public class FlyingEnemyAI : MonoBehaviour
 
         transform.position += transform.forward * 10 * Time.deltaTime;
     }
-
-    void Update()
-    {
-         hue += colorChangeSpeed * Time.deltaTime;
+    void ChangeColor(){
+        hue += colorChangeSpeed * Time.deltaTime;
         if (hue >= 1f)
         {
             hue -= 1f;
@@ -36,7 +34,10 @@ public class FlyingEnemyAI : MonoBehaviour
 
         Color newColor = Color.HSVToRGB(hue, 1f, 1f);
         objectRenderer.material.color = newColor;
-        
+    }
+    void Update()
+    {
+        ChangeColor();
         Vector3 forward = transform.forward;
         Vector3 upward = transform.up;
         Vector3 right = transform.right;
