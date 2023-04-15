@@ -28,7 +28,6 @@ public class ObjectSpawner : MonoBehaviour
             obj.transform.rotation = transform.rotation;
             obj.SetActive(true);
 
-            // Add random force to throw objects upwards
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -40,7 +39,6 @@ public class ObjectSpawner : MonoBehaviour
                 rb.AddForce(randomForce);
             }
 
-            // Disable object after a specified time
             StartCoroutine(DisableObjectAfterTime(obj, disableAfter));
         }
     }
