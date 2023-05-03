@@ -35,5 +35,4 @@ public class GameManager : MonoBehaviour
         Debug.Log("New score is: " + score);
     }
 
-    // Other methods and variables go here
 }
