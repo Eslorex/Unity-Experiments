@@ -22,6 +22,7 @@ using System.Collections.Generic;
 // - OnDrawGizmosSelected(): Draws a wire sphere in the editor to visualize the spread range.
 //
 // Notes:
+// - Sphere version of this script is suppose to be a lot more efficient. 
 // - The script uses tags to identify burnable objects.
 // - It uses a coroutine for delayed ignition and HashSet to track ignited objects.
 
