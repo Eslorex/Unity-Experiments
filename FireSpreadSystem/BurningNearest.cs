@@ -2,6 +2,29 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+// Script Purpose: This script is responsible for handling the spreading of a 'burning' effect among nearby game objects in a Unity scene.
+// 'BurningNearest' is attached to game objects, marking them as 'burnable'. When enabled, it searches for the nearest burnable object within a specified range and applies the same burning effect to it after a delay.
+//
+// Public Variables:
+// - burnTime (float): Duration in seconds before the game object destroys itself.
+// - spreadRange (float): The maximum range within which the script can affect other burnable objects.
+// - ignitionDelay (float): The delay in seconds before igniting the nearest burnable object.
+//
+// Private Variables:
+// - alreadyIgnited (HashSet<GameObject>): A collection of game objects that have already been ignited to prevent re-ignition.
+//
+// Methods:
+// - Start(): Initializes the object's material to red when the script starts.
+// - Update(): Continuously checks and starts the ignition process of nearby burnable objects.
+// - FindAndStartIgnition(): Finds the nearest burnable object and triggers the ignition process.
+// - StartBurningAfterDelay(GameObject): Starts a coroutine to ignite an object after a specified delay.
+// - OnEnable(): Destroys the game object after 'burnTime' seconds when the script is enabled.
+// - OnDrawGizmosSelected(): Draws a wire sphere in the editor to visualize the spread range.
+//
+// Notes:
+// - The script uses tags to identify burnable objects.
+// - It uses a coroutine for delayed ignition and HashSet to track ignited objects.
+
 public class BurningNearest : MonoBehaviour
 {
     public float burnTime = 10f;
